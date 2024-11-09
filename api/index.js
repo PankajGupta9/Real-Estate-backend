@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
@@ -8,6 +9,8 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 dotenv.config();
 
+const app = express();
+app.use(cors());
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
@@ -19,7 +22,6 @@ mongoose
 
   const __dirname = path.resolve();
 
-const app = express();
 
 app.use(express.json());
 
