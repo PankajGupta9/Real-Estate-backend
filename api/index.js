@@ -33,6 +33,9 @@ app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
 
+app.get('/',(req,res)=>{
+  res.send("<h1>Welecome to Real Estate App/h1>")
+})
 
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
